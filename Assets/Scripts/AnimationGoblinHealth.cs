@@ -31,8 +31,19 @@ public class AnimationGoblinHealth : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _goblin = GetComponent<HealthCharacter>();
+    }
+
+    private void OnEnable()
+    {
         _goblin.Die += Die;
         _goblin.Hurt += Hurt;
         _goblin.TreatHealth += Treat;
+    }
+
+    private void OnDisable()
+    {
+        _goblin.Die -= Die;
+        _goblin.Hurt -= Hurt;
+        _goblin.TreatHealth -= Treat;
     }
 }

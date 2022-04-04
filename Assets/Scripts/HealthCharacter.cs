@@ -25,7 +25,7 @@ public class HealthCharacter : MonoBehaviour
 
     public event UnityAction ChangeHealth
     {
-        add => _changedHealth.AddListener(value);
+        add => _changedHealth.AddListener(value);        
         remove => _changedHealth.RemoveListener(value);
     }
 
