@@ -6,17 +6,30 @@ using UnityEngine;
 public class AnimationGoblinHealth : MonoBehaviour
 {
     private Animator _animator = null;
-    private Goblin _goblin = null;
+    private HealthCharacter _goblin = null;
     private const string HealthAnimator = "Health";
+    private const string HurtTrigger = "Hurt";
+    private const string DeadTrigger = "Dead";
+    private const string HealingTrigger = "Healing";
 
-    private void Update()
+    public void Die()
     {
-        _animator.SetFloat(HealthAnimator, _goblin.Health);
+        _animator.SetTrigger(DeadTrigger);
+    }
+
+    public void Treat()
+    {
+        _animator.SetTrigger(HealingTrigger);
+    }
+
+    public void hurt()
+    {
+        _animator.SetTrigger(HurtTrigger);
     }
 
     private void Awake()
     {
         _animator = GetComponent<Animator>();
-        _goblin = GetComponent<Goblin>();
+        _goblin = GetComponent<HealthCharacter>();
     }
 }
