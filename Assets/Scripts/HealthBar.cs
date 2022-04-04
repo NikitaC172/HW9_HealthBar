@@ -27,6 +27,7 @@ public class HealthBar : MonoBehaviour
         _slider.value = _goblin.Health;
         _currentValue = _goblin.Health;
         _fillArea.color = Color.Lerp(Color.red, Color.green, _slider.value / HundredthPart);
+        _goblin.ChangeHealth += ChangeHealth;
     }
 
     private void ChangeValue()

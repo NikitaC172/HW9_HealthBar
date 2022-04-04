@@ -22,7 +22,7 @@ public class AnimationGoblinHealth : MonoBehaviour
         _animator.SetTrigger(HealingTrigger);
     }
 
-    public void hurt()
+    public void Hurt()
     {
         _animator.SetTrigger(HurtTrigger);
     }
@@ -31,5 +31,8 @@ public class AnimationGoblinHealth : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _goblin = GetComponent<HealthCharacter>();
+        _goblin.Die += Die;
+        _goblin.Hurt += Hurt;
+        _goblin.TreatHealth += Treat;
     }
 }
